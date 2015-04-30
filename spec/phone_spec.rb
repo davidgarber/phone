@@ -1,6 +1,12 @@
 require('rspec')
 require('phone')
 
+  describe(Phone) do
+    before() do
+      Phone.clear()
+    end
+
+
   describe("#number") do
     it("returns phone number") do
     test_phone = Phone.new({:number => "555-5555", :area_code => "503", :label => "mobile"})
@@ -35,3 +41,13 @@ require('phone')
       expect(Phone.all()).to(eq([test_phone]))
     end
   end
+
+  describe(".clear") do
+    it("empties out all of the saved phones") do
+      Phone.new({:number => "555-5555", :area_code => "503", :label => "mobile"})
+      Phone.clear()
+      expect(Phone.all()).to(eq([]))
+    end
+  end
+
+end
