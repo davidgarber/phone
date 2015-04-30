@@ -50,4 +50,22 @@ require('phone')
     end
   end
 
+  describe("id") do
+    it("returns the id of the phone number") do
+      test_phone = Phone.new({:number => "555-5555", :area_code => "503", :label => "mobile"})
+      test_phone.save()
+      expect(test_phone.id()).to(eq(1))
+    end
+  end
+
+  describe(".find") do
+    it("returns a phone number+area+label") do
+      test_phone = Phone.new({:number => "555-5555", :area_code => "503", :label => "mobile"})
+      test_phone.save()
+      test_phone2 = Phone.new({:number => "444-4444", :area_code => "206", :label => "home"})
+      test_phone2.save()
+      expect(Phone.find(test_phone.id())).to(eq(test_phone))
+    end
+  end
+
 end
