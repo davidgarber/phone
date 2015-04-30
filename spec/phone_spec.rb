@@ -21,3 +21,9 @@ require('phone')
       expect(test_phone.label()).to(eq("mobile"))
     end
   end
+
+  describe(".all") do
+    it("is empty at first") do
+      expect(Phone.all()).to(eq([]))
+    end
+  end
