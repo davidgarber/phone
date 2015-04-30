@@ -27,3 +27,11 @@ require('phone')
       expect(Phone.all()).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it("saves the entry") do
+      test_phone = Phone.new({:number => "555-5555", :area_code => "503", :label => "mobile"})
+      test_phone.save()
+      expect(Phone.all()).to(eq([test_phone]))
+    end
+  end

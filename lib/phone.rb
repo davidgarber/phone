@@ -13,4 +13,8 @@ class Phone
     @@all_phone
   end
 
+  define_method(:save) do
+    @@all_phone.push(self)
+  end
+
 end
